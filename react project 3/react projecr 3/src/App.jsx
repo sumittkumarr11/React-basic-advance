@@ -15,7 +15,6 @@ function App() {
     <div>
 
 <Button handleClick ={handleClick} text="click me" />
-
 <h1>{count}</h1>
 
       {/* <Card name ="sumit sharma">
