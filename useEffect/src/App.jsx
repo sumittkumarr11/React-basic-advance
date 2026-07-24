@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
 import { useEffect, useState } from 'react'
+import LoggerComponent from './components/LoggerComponent'
+import TimerComponent from './components/TImerComponent'
 function App() {
 // const [count , setCount] = useState(0);
 // const [total , setTotal] =  useState(1);
@@ -40,6 +42,8 @@ function App() {
 // }
   return (
     <div>
+    <LoggerComponent />
+     <TimerComponent />
     {/* <button onClick={handleClick}>
    update count
     </button>
@@ -51,6 +55,8 @@ function App() {
     </button>
     <br/>
     total is : {total} */}
+
+  
     </div>
   )
 }
