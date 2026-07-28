@@ -5,9 +5,9 @@ function App() {
   const {
     register,
     handleSubmit,
-    watch,
+    // watch,
     formState: {errors},
-    } = useForm();
+  } = useForm();
 
       function onSubmit(data){
        console.log("submitting the form" , data);
@@ -18,25 +18,37 @@ function App() {
         <div>
           <label> First Name:</label>
           <input 
-          className={errors.firstName ? "input -error" : "" }
+          className={errors.firstName ? "input-error" : "" }
           {...register('firstName',
            {
              required: true,
              minLength:{value:3,message:"min length atleast 3"},
              maxLength:{value:6,message:"max length atmost 6"}})} />
+
              {errors.firstName && <p className='error-msg'>{errors.firstName.message}</p>}
         </div>
        <br/>
+
         <div>
           <label> Middle Name:</label>
-          <input {...register('middleName')}/>
+          <input className={errors.firstName ? "input-error" : ""}
+           {...register('middleName')}/>
         </div>
         <br/>
+
         <div>
           <label> Last Name: </label>
-          <input {...register('lastName')}/>
+          <input className={errors.firstName ?"input-error" : ""}
+          {...register('lastName' , {
+            pattern: {
+              value:  /^[A-Za-z]+$/i ,
+              message: "Last Name is not as per the rules"
+            }
+          })}/>
+          {errors.lastName && <p className='error-msg'>{errors.lastName.message}</p>}
         </div>
          <br/> 
+
          <input  type='submit'/>
       </form>
     
